@@ -15,7 +15,7 @@ public class BankImpl implements Bank {
     private int[][] allocation;	// the amount currently allocated to each thread
  	   private int[][] need;	// the remaining needs of each thread
 
-    private void showAllMatrices(int[][] alloc, int[][] max, int[][] need, String msg) { 
+    private void showAllMatrices(int[][] alloc, int[][] max, int[][] need, String msg) {
 		// todo
         System.out.println(msg);
         for(int i = 0; i < alloc.length; i++){
@@ -38,7 +38,7 @@ public class BankImpl implements Bank {
             System.out.println(" ]");
         }
 	}
- 
+
     private void showMatrix(int[][] matrix, String title, String rowTitle) {
 		// todo
         System.out.println(title);
@@ -66,9 +66,9 @@ public class BankImpl implements Bank {
         m = resources.length;
 
         available = new int[resources.length];
-        maximum = new int[n][m];       
+        maximum = new int[n][m];
         allocation = new int[n][m];
-        need = new int[n][m]; 
+        need = new int[n][m];
 
         for(int i = 0; i < resources.length; i++){
             available[i] = resources[i];
@@ -172,5 +172,14 @@ public class BankImpl implements Bank {
             allocation[threadNum][i] -= release[i];
             available[i] += release[i];
         }
+    }
+
+    public boolean isDone(){
+      for(int i = 0; i < n; i++){
+        for(int j = 0; j < m; j++){
+          if(need[i][j] > 0) return false;
+        }
+      }
+      return true;
     }
 }
