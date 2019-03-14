@@ -28,11 +28,11 @@ public class Customer implements Runnable {
         boolean canRun = true;
         while (canRun) {
             try {
-                
+
                 SleepUtilities.nap();       // take a nap
                                             // ... then, make a resource request
                 for (int i = 0; i < numOfResources; i++) { request[i] = rand.nextInt(maxDemand[i]+1); }
-                
+
                 if (theBank.requestResources(customerNum, request)) {   // if customer can proceed
                 //System.out.println("HERE ThreadNUM = " + customerNum);
                     SleepUtilities.nap();   // use and release the resources
