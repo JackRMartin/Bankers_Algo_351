@@ -12,4 +12,6 @@ public interface Bank {
 
            // release resources
     public  void releaseResources(int threadNum, int[] release);
+
+    public boolean isDone();
 }
