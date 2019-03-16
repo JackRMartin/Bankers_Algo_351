@@ -67,6 +67,7 @@ public class Factory {
 
           System.out.println("FACTORY: started threads");
           for (int i = 0; i < Customer.COUNT; i++) { workers[i].start(); }
+          break;
       } else if(choice == 'i'){
 
           System.out.print("Enter * to get the system state, OR enter <RQ | RL> <customer number> <resource #0> <#1> <#2>");
@@ -75,6 +76,7 @@ public class Factory {
             theBank.getState();
           }
         }
+        System.out.println(theBank.isDone());
       }while(!theBank.isDone());
     }
 }
