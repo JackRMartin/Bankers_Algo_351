@@ -29,7 +29,7 @@ public class Customer implements Runnable {
         while (canRun) {
             try {
 
-                SleepUtilities.nap();       // take a nap
+                //SleepUtilities.nap();       // take a nap
                                             // ... then, make a resource request
                 for (int i = 0; i < numOfResources; i++) { request[i] = rand.nextInt(maxDemand[i]+1); }
 
